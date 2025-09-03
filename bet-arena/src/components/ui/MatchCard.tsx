@@ -1,5 +1,5 @@
 // src/components/ui/MatchCard.tsx
-import type { Match } from '../../store/bulletin/types'; // Selection'ı import etmeye gerek yok, alttaki daha iyi
+import type { Match } from '../../store/bulletin/types';
 import { toggleSelection } from '../../store/basket/basketSlice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { trackAddToCart, trackRemoveFromCart } from '../../api/analyticsService.ts'
@@ -27,7 +27,6 @@ const MatchCard = ({ match }: MatchCardProps) => {
   };
 
   const handleToggleSelection = (outcomeName: string, outcomePrice: number) => {
-    // Bu payload hem Redux'a hem Analytics'e gönderilecek
     const selectionPayload = {
       matchId: match.id,
       matchHomeTeam: match.home_team,
@@ -37,19 +36,14 @@ const MatchCard = ({ match }: MatchCardProps) => {
       outcomePrice: outcomePrice,
     };
 
-    // Kullanıcının tıkladığı oran zaten sepette mi?
     const isAlreadySelected = currentSelection && currentSelection.outcomeName === outcomeName;
 
-    // Duruma göre ilgili analitik olayını gönder
     if (isAlreadySelected) {
-      // Eğer zaten seçiliyse ve tekrar tıklandıysa, bu bir "sepetten çıkarma" eylemidir
       trackRemoveFromCart(selectionPayload);
     } else {
-      // Eğer seçili değilse, bu bir "sepete ekleme" eylemidir
       trackAddToCart(selectionPayload);
     }
 
-    // Son olarak Redux state'ini güncelle
     dispatch(toggleSelection(selectionPayload));
   };
   return (

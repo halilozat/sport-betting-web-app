@@ -27,16 +27,14 @@ const BetBasket = () => {
       ) : (
         <>
           <ul className="basket-list">
-            {/* Listeyi AnimatePresence ile sarmala */}
             <AnimatePresence>
               {selections.map((selection) => (
-                // li'yi motion.li yap ve animasyon prop'larını ekle
                 <motion.li
                   key={selection.matchId}
-                  layout // Pozisyonu değiştiğinde animasyonla geçiş yapmasını sağlar
-                  initial={{ opacity: 0, x: -50 }} // Başlangıçta solda ve görünmez
-                  animate={{ opacity: 1, x: 0 }}   // Ortaya doğru gelerek görünür ol
-                  exit={{ opacity: 0, x: 50, transition: {duration: 0.2} }} // Çıkarken sağa doğru giderek kaybol
+                  layout
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 50, transition: {duration: 0.2} }}
                 >
                   <div className="selection-info">
                     <span>{selection.matchHomeTeam} - {selection.matchAwayTeam}</span>

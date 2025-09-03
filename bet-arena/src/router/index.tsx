@@ -6,30 +6,24 @@ import NotFoundPage from '../pages/NotFoundPage';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import PublicRoutes from './PublicRoutes';
-import ProtectedRoutes from './ProtectedRoutes'; // ProtectedRoutes'ı import ettiğinden emin ol
+import ProtectedRoutes from './ProtectedRoutes';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainLayout />, // MainLayout hala ana iskeletimiz
+    element: <MainLayout />,
     children: [
       {
-        // Bu sarmalayıcı, altındaki tüm rotaların sadece giriş yapmış
-        // kullanıcılar tarafından görülmesini sağlar.
         element: <ProtectedRoutes />,
         children: [
           {
-            index: true, // Anasayfa ('/') artık korumalı
+            index: true,
             element: <HomePage />,
           },
-          // Gelecekte eklenecek "Profilim", "Bahislerim" gibi diğer korumalı
-          // sayfalar da buraya, ProtectedRoutes'un altına gelecek.
-          // { path: 'profile', element: <ProfilePage /> }
         ]
       }
     ]
   },
-  // Public rotalar (MainLayout dışında, kendi başlarına)
   {
     element: <PublicRoutes />,
     children: [

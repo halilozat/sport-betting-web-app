@@ -6,15 +6,15 @@
   border-top: 1px solid var.$color-border;
   padding: var.$spacing-lg var.$spacing-xl;
   color: var.$color-text-secondary;
-  margin-top: auto; // İçeriğin az olduğu sayfalarda bile footer'ı aşağıda tutar
+  margin-top: auto;
 
   .footer-content {
-    max-width: 1200px; // Ana içerikle aynı genişlikte olması için
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; // Küçük ekranlarda alt alta gelmesi için
+    flex-wrap: wrap;
     gap: var.$spacing-md;
 
     p {

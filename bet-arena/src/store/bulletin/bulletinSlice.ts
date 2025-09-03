@@ -3,7 +3,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { getUpcomingOdds } from '../../api/oddsService'
 import type { BulletinState, Match } from './types.ts'
 
-// 1. Asenkron Thunk'ı oluşturuyoruz
 // Bu, API çağrısını yapacak ve sonuçlarına göre action'lar dispatch edecek.
 export const fetchBulletinOdds = createAsyncThunk<Match[]>(
   'bulletin/fetchOdds',
@@ -17,21 +16,17 @@ export const fetchBulletinOdds = createAsyncThunk<Match[]>(
   },
 )
 
-// 2. Başlangıç state'ini tanımlıyoruz
 const initialState: BulletinState = {
   matches: [],
   loading: 'idle',
   error: null,
 }
 
-// 3. Slice'ı oluşturuyoruz
 export const bulletinSlice = createSlice({
   name: 'bulletin',
   initialState,
   reducers: {
-    // Senkron action'lar gerekirse buraya eklenebilir
   },
-  // Asenkron action'ları burada yönetiyoruz
   extraReducers: (builder) => {
     builder
       .addCase(fetchBulletinOdds.pending, (state) => {

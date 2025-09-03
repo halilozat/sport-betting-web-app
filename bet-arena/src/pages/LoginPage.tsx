@@ -22,7 +22,7 @@ const LoginPage = () => {
         email: userCredential.user.email,
       };
       dispatch(setUser(loggedInUser));
-      navigate('/'); // Başarılı girişte anasayfaya yönlendir
+      navigate('/');
     } catch (err: any) {
       setError(err.message);
       dispatch(setAuthError(err.message));
@@ -30,7 +30,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="form-container"> {/* Ana sarmalayıcıyı ekle */}
+    <div className="form-container">
       <h2>Giriş Yap</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -47,10 +47,10 @@ const LoginPage = () => {
           placeholder="Şifre"
           required
         />
-        {error && <p className="error-message">{error}</p>} {/* Hata mesajı için class ekle */}
+        {error && <p className="error-message">{error}</p>}
         <button type="submit">Giriş Yap</button>
       </form>
-      <p className="form-footer"> {/* Footer için class ekle */}
+      <p className="form-footer">
         Hesabın yok mu? <Link to="/register">Kayıt Ol</Link>
       </p>
     </div>

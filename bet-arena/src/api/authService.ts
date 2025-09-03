@@ -4,20 +4,19 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { auth } from "../lib/firebase"; // Firebase initialize dosyamızdan auth'u alıyoruz
+import { auth } from "../lib/firebase";
 
-// Kayıt olma fonksiyonu
+// vite firebaseden gelen type'ı tanıyamadığı için any kullandım
 export const signUp = async (email: string, password: string): Promise<any> => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     return userCredential;
   } catch (error: any) {
-    // Firebase'den gelen hatayı daha anlaşılır bir mesaja çevirebiliriz
     throw new Error(error.message);
   }
 };
 
-// Giriş yapma fonksiyonu
+// vite firebaseden gelen type'ı tanıyamadığı için any kullandım
 export const signIn = async (email: string, password: string): Promise<any> => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -27,7 +26,6 @@ export const signIn = async (email: string, password: string): Promise<any> => {
   }
 };
 
-// Çıkış yapma fonksiyonu
 export const signOutUser = async (): Promise<void> => {
   try {
     await signOut(auth);

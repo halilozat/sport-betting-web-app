@@ -22,7 +22,7 @@ const RegisterPage = () => {
         email: userCredential.user.email,
       };
       dispatch(setUser(newUser));
-      navigate('/'); // Başarılı kayıtta anasayfaya yönlendir
+      navigate('/');
     } catch (err: any) {
       setError(err.message);
       dispatch(setAuthError(err.message));
@@ -30,7 +30,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="form-container"> {/* Ana sarmalayıcıyı ekle */}
+    <div className="form-container">
       <h2>Kayıt Ol</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -47,10 +47,10 @@ const RegisterPage = () => {
           placeholder="Şifre (en az 6 karakter)"
           required
         />
-        {error && <p className="error-message">{error}</p>} {/* Hata mesajı için class ekle */}
+        {error && <p className="error-message">{error}</p>}
         <button type="submit">Kayıt Ol</button>
       </form>
-      <p className="form-footer"> {/* Footer için class ekle */}
+      <p className="form-footer">
         Zaten hesabın var mı? <Link to="/login">Giriş Yap</Link>
       </p>
     </div>

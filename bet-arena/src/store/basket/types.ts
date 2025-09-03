@@ -5,7 +5,7 @@ export type Selection = {
   matchId: string;
   matchHomeTeam: string;
   matchAwayTeam:string;
-  marketKey: string; // 'h2h' (head-to-head) gibi
+  marketKey: string;
   outcomeName: string; // Bahis yapılan taraf (Örn: 'Arsenal', 'Draw')
   outcomePrice: number; // Bahsin oranı
 };

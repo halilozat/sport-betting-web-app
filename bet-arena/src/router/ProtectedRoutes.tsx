@@ -6,15 +6,13 @@ const ProtectedRoutes = () => {
   const { user, authReady } = useAppSelector((state) => state.user);
 
   if (!authReady) {
-    return <div>Yükleniyor...</div>; // veya null
+    return <div>Yükleniyor...</div>;
   }
 
-  // Eğer kontrol bittiyse ve kullanıcı GİRİŞ YAPMAMIŞSA, login sayfasına yönlendir
   if (!user) {
     return <Navigate to="/login" />;
   }
 
-  // Eğer kullanıcı giriş yapmışsa, altındaki rotanın (örn: ProfilePage) render edilmesine izin ver
   return <Outlet />;
 };
 

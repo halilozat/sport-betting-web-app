@@ -3,8 +3,6 @@ import { analytics } from "../lib/firebase";
 import { logEvent } from "firebase/analytics";
 import type { Selection } from "../store/basket/types";
 
-// Firebase'in önerdiği standart e-ticaret olaylarını kullanacağız.
-
 /**
  * Bir bahis sepete eklendiğinde veya detayları görüntülendiğinde bu olayı tetikler.
  * @param selection Sepete eklenen bahis bilgisi
@@ -13,7 +11,7 @@ export const trackAddToCart = (selection: Selection) => {
   if (!analytics) return;
 
   logEvent(analytics, 'add_to_cart', {
-    currency: 'TRY', // Para birimi (isteğe bağlı)
+    currency: 'TRY',
     value: selection.outcomePrice, // Bahsin değeri/oranı
     items: [
       {

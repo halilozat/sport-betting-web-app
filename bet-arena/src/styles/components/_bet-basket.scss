@@ -5,24 +5,22 @@
 .bet-basket {
   border: 1px solid var.$color-border;
   padding: var.$spacing-lg;
-  width: 340px; // Sabit bir genişlik verelim
+  width: 340px;
   min-width: 340px;
   background-color: var.$color-surface;
   border-radius: var.$border-radius-main;
   box-shadow: var.$box-shadow-main;
 
-  // Flexbox kullanarak iç düzeni yönet
   display: flex;
   flex-direction: column;
-  // Sepetin yüksekliğini ana içeriğe göre ayarla
   align-self: flex-start;
-  position: sticky; // Sayfa kaydırılsa bile sepetin görünür kalmasını sağla
+  position: sticky;
   top: var.$spacing-lg;
 
   h2 {
     margin-top: 0;
     text-align: center;
-    flex-shrink: 0; // Bu elemanın küçülmesini engelle
+    flex-shrink: 0;
   }
 
   .basket-list {
@@ -30,9 +28,8 @@
     padding: 0;
     margin: 0;
 
-    // YENİ EKLENEN KISIM: Kaydırma çubuğu için
-    max-height: 45vh; // Ekran yüksekliğinin %45'ini geçmesin
-    overflow-y: auto; // Eğer geçerse, dikey kaydırma çubuğu çıksın
+    max-height: 45vh;
+    overflow-y: auto;
 
     li {
       display: flex;
@@ -43,8 +40,18 @@
     }
   }
 
-  .selection-info { /* ... mevcut stiller ... */ }
-  .selection-details { /* ... mevcut stiller ... */ }
+  .selection-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.9em;
+  }
+
+  .selection-details {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
 
   .remove-btn {
     @include mix.button-style($bg-color: var.$color-danger, $text-color: white);
@@ -56,10 +63,10 @@
   }
 
   .basket-summary {
-    margin-top: auto; // Bu, list ne kadar uzun olursa olsun özeti en altta tutar
+    margin-top: auto;
     padding-top: var.$spacing-md;
     border-top: 1px solid var.$color-border;
-    flex-shrink: 0; // Bu elemanın küçülmesini engelle
+    flex-shrink: 0;
   }
 
   .clear-btn {

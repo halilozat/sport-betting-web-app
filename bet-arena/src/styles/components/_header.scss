@@ -2,7 +2,6 @@
 @use '../abstracts/variables' as var;
 
 .main-header {
-  // Ana Konteyner
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,31 +10,27 @@
   border-bottom: 1px solid var.$color-border;
   box-shadow: var.$box-shadow-main;
 
-  // Logo Kısmı
   .logo {
     text-decoration: none;
 
     h1 {
       margin: 0;
-      font-size: 1.5rem; // h1 için varsayılanı ezelim
+      font-size: 1.5rem;
       color: var.$color-primary;
       font-weight: 700;
     }
   }
 
-  // Navigasyon Kısmı
   nav {
     display: flex;
     align-items: center;
     gap: var.$spacing-lg;
 
-    // Kullanıcı e-postası
     span {
       color: var.$color-text-secondary;
       font-size: 0.9em;
     }
 
-    // Linkler (Giriş/Kayıt)
     a {
       text-decoration: none;
       color: var.$color-text-primary;
@@ -47,7 +42,6 @@
       }
     }
 
-    // Buton (Çıkış Yap)
     button {
       background-color: transparent;
       border: 1px solid var.$color-primary;
