@@ -2,7 +2,7 @@
 
 Bu proje, React, Vite, TypeScript ve Redux Toolkit kullanılarak geliştirilmiş, modern ve interaktif bir spor bahisleri web uygulamasıdır. Kullanıcıların yaklaşan maçları ve oranlarını görüntülemesine, dinamik bir bahis kuponu oluşturmasına ve Firebase ile güvenli bir şekilde kimlik doğrulaması yapmasına olanak tanır.
 
-**🔗 Canlı Demo:** [**sport-betting-web-gscejnjyj-halilozats-projects.vercel.app**](https://sport-betting-web-gscejnjyj-halilozats-projects.vercel.app/login)
+**🔗 Canlı Demo:** [**sport-betting-web-gscejnjyj-halilozats-projects.vercel.app**]([https://sport-betting-web-gscejnjyj-halilozats-projects.vercel.app/login](https://sport-betting-web-app.vercel.app/login))
 
 ![Uygulama Ekran Görüntüsü](./public/screenshot.png)
 
