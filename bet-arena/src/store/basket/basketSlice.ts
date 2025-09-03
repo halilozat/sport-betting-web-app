@@ -1,6 +1,6 @@
 // src/store/basket/basketSlice.ts
-import type { BasketState, Selection } from './types.ts';
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
+import type { BasketState, Selection } from './types';
 
 const initialState: BasketState = {
   selections: [],
@@ -17,17 +17,17 @@ export const basketSlice = createSlice({
         (selection) => selection.matchId === newSelection.matchId
       );
 
-      // 1. Kural: Aynı maça ait farklı bir bahis zaten varsa, onu yenisiyle değiştir.
+      // Kural 1: Aynı maça ait bir bahis zaten varsa...
       if (existingSelectionIndex !== -1) {
-        // Eğer tıklanan bahis zaten seçili olanla aynıysa, onu kaldır (toggle).
+        // ...ve tıklanan bahis, seçili olanla aynıysa, onu sepetten kaldır (toggle).
         if (state.selections[existingSelectionIndex].outcomeName === newSelection.outcomeName) {
           state.selections.splice(existingSelectionIndex, 1);
         } else {
-          // Değilse, o maç için yapılmış seçimi yenisiyle güncelle.
+          // ...ama tıklanan bahis farklıysa, o maç için yapılmış seçimi yenisiyle güncelle.
           state.selections[existingSelectionIndex] = newSelection;
         }
       } else {
-        // 2. Kural: Maça ait bahis yoksa, direkt ekle.
+        // Kural 2: Maça ait bahis yoksa, direkt sepete ekle.
         state.selections.push(newSelection);
       }
     },

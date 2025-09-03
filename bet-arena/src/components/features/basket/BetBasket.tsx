@@ -1,6 +1,9 @@
 // src/components/features/basket/BetBasket.tsx
 import { useAppSelector, useAppDispatch } from '../../../store/hooks';
 import { removeSelection, clearBasket } from '../../../store/basket/basketSlice';
+import { trackRemoveFromCart } from '../../../api/analyticsService';
+import type { Selection } from '../../../store/basket/types';
+import { motion, AnimatePresence } from 'framer-motion'; // AnimatePresence'ı da import et
 
 const BetBasket = () => {
   const dispatch = useAppDispatch();
@@ -11,6 +14,11 @@ const BetBasket = () => {
     return accumulator * current.outcomePrice;
   }, 1);
 
+  const handleRemove = (selection: Selection) => {
+    trackRemoveFromCart(selection);
+    dispatch(removeSelection({ matchId: selection.matchId }));
+  };
+
   return (
     <aside className="bet-basket">
       <h2>Bahis Sepeti</h2>
@@ -19,23 +27,33 @@ const BetBasket = () => {
       ) : (
         <>
           <ul className="basket-list">
-            {selections.map((selection) => (
-              <li key={selection.matchId}>
-                <div className="selection-info">
-                  <span>{selection.matchHomeTeam} - {selection.matchAwayTeam}</span>
-                  <strong>Tahmin: {selection.outcomeName}</strong>
-                </div>
-                <div className="selection-details">
-                  <span>Oran: {selection.outcomePrice}</span>
-                  <button
-                    onClick={() => dispatch(removeSelection({ matchId: selection.matchId }))}
-                    className="remove-btn"
-                  >
-                    ×
-                  </button>
-                </div>
-              </li>
-            ))}
+            {/* Listeyi AnimatePresence ile sarmala */}
+            <AnimatePresence>
+              {selections.map((selection) => (
+                // li'yi motion.li yap ve animasyon prop'larını ekle
+                <motion.li
+                  key={selection.matchId}
+                  layout // Pozisyonu değiştiğinde animasyonla geçiş yapmasını sağlar
+                  initial={{ opacity: 0, x: -50 }} // Başlangıçta solda ve görünmez
+                  animate={{ opacity: 1, x: 0 }}   // Ortaya doğru gelerek görünür ol
+                  exit={{ opacity: 0, x: 50, transition: {duration: 0.2} }} // Çıkarken sağa doğru giderek kaybol
+                >
+                  <div className="selection-info">
+                    <span>{selection.matchHomeTeam} - {selection.matchAwayTeam}</span>
+                    <strong>Tahmin: {selection.outcomeName}</strong>
+                  </div>
+                  <div className="selection-details">
+                    <span>Oran: {selection.outcomePrice}</span>
+                    <button
+                      onClick={() => handleRemove(selection)}
+                      className="remove-btn"
+                    >
+                      ×
+                    </button>
+                  </div>
+                </motion.li>
+              ))}
+            </AnimatePresence>
           </ul>
           <div className="basket-summary">
             <p>Toplam Maç: {selections.length}</p>
