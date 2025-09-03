@@ -1,33 +1,70 @@
 // src/styles/components/_bet-basket.scss
 @use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
 
 .bet-basket {
   border: 1px solid var.$color-border;
   padding: var.$spacing-lg;
-  min-width: 320px;
+  width: 340px; // Sabit bir genişlik verelim
+  min-width: 340px;
   background-color: var.$color-surface;
   border-radius: var.$border-radius-main;
   box-shadow: var.$box-shadow-main;
 
+  // Flexbox kullanarak iç düzeni yönet
+  display: flex;
+  flex-direction: column;
+  // Sepetin yüksekliğini ana içeriğe göre ayarla
+  align-self: flex-start;
+  position: sticky; // Sayfa kaydırılsa bile sepetin görünür kalmasını sağla
+  top: var.$spacing-lg;
+
   h2 {
     margin-top: 0;
     text-align: center;
+    flex-shrink: 0; // Bu elemanın küçülmesini engelle
   }
 
-  .basket-list li {
-    border-bottom: 1px solid var.$color-border;
+  .basket-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    // YENİ EKLENEN KISIM: Kaydırma çubuğu için
+    max-height: 45vh; // Ekran yüksekliğinin %45'ini geçmesin
+    overflow-y: auto; // Eğer geçerse, dikey kaydırma çubuğu çıksın
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var.$spacing-md 0;
+      border-bottom: 1px solid var.$color-border;
+    }
   }
+
+  .selection-info { /* ... mevcut stiller ... */ }
+  .selection-details { /* ... mevcut stiller ... */ }
 
   .remove-btn {
-    background: var.$color-danger;
+    @include mix.button-style($bg-color: var.$color-danger, $text-color: white);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    padding: 0;
+    line-height: 28px;
   }
 
   .basket-summary {
+    margin-top: auto; // Bu, list ne kadar uzun olursa olsun özeti en altta tutar
+    padding-top: var.$spacing-md;
     border-top: 1px solid var.$color-border;
+    flex-shrink: 0; // Bu elemanın küçülmesini engelle
   }
 
   .clear-btn {
-    background-color: var.$color-danger;
-    border-radius: var.$spacing-xs;
+    @include mix.button-style($bg-color: var.$color-danger, $text-color: white);
+    width: 100%;
+    margin-top: var.$spacing-sm;
   }
 }

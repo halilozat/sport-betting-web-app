@@ -13,5 +13,6 @@
 
   main {
     flex-grow: 1; // Ana içeriğin mevcut tüm alanı kaplamasını sağla
+    min-width: 0;
   }
 }

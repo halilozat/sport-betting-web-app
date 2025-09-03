@@ -10,8 +10,15 @@ const Header = () => {
   // user state'ine ek olarak authReady'yi de al
   const { user, authReady } = useAppSelector((state) => state.user);
 
-  const handleLogout = async () => { /* ... */ };
-
+  const handleLogout = async () => {
+    try {
+      await signOutUser();
+      dispatch(clearUser());
+      navigate('/login');
+    } catch (error) {
+      console.error("Çıkış yaparken hata:", error);
+    }
+  };
   // Eğer Firebase'in ilk kontrolü henüz bitmediyse, hiçbir şey render etme (veya bir yüklenme animasyonu)
   if (!authReady) {
     return null;

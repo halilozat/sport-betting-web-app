@@ -1,0 +1,44 @@
+// src/styles/base/_reset.scss
+
+// 1. Box-sizing kuralı (bunu zaten ekledin ve sorunu çözdü)
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// 2. Varsayılan margin'leri kaldırarak boşluk kontrolünü tamamen bize bırak
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+}
+
+// 3. Listelerin başındaki işaretleri ve iç boşlukları kaldır
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+// 4. Medya elemanlarının (resim, video vb.) konteyner dışına taşmasını engelle
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+// 5. Form elemanlarının (input, button) varsayılan font yerine
+// body'de tanımlı ana fontumuzu kullanmasını sağla
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
