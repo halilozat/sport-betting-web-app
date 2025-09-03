@@ -1,12 +1,13 @@
 // src/components/layout/MainLayout.tsx
-import { useEffect } from 'react'; // useEffect'i import et
 import { Outlet } from 'react-router-dom';
 import BetBasket from '../features/basket/BetBasket';
 import Header from './Header';
+import Footer from './Footer'; // Footer'ı import et
 import { onAuthStateChanged } from 'firebase/auth'; // Firebase'den onAuthStateChanged'ı import et
 import { auth } from '../../lib/firebase'; // Firebase config'imizi import et
 import { useAppDispatch } from '../../store/hooks'; // dispatch'i import et
-import { setUser, setAuthReady } from '../../store/user/userSlice'; // action'ları import et
+import { setUser, setAuthReady } from '../../store/user/userSlice';
+import { useEffect } from 'react' // action'ları import et
 
 const MainLayout = () => {
   const dispatch = useAppDispatch();
@@ -36,8 +37,7 @@ const MainLayout = () => {
   }, [dispatch]); // dispatch bağımlılığını ekle
 
   return (
-    // JSX kısmı aynı kalacak
-    <div>
+    <div className="layout-container"> {/* Ana sarmalayıcıya bir class ekleyelim */}
       <Header />
       <div className="main-content">
         <main>
@@ -45,7 +45,7 @@ const MainLayout = () => {
         </main>
         <BetBasket />
       </div>
-      <footer>Footer Alanı</footer>
+      <Footer />
     </div>
   );
 };

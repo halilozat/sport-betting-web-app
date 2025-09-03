@@ -1,69 +1,60 @@
-# React + TypeScript + Vite
+# Bet Arena - Sports Betting Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bu proje, React, Vite, TypeScript ve Redux Toolkit kullanılarak geliştirilmiş modern bir spor bahisleri web uygulamasıdır. Kullanıcıların yaklaşan maçları ve oranlarını görüntülemesine, bahis kuponu oluşturmasına ve Firebase ile kimlik doğrulaması yapmasına olanak tanır.
 
-Currently, two official plugins are available:
+![Uygulama Ekran Görüntüsü](BURAYA_EKRAN_GÖRÜNTÜSÜ_LİNKİ_GELECEK)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Özellikler
 
-## Expanding the ESLint configuration
+- **Bahis Bülteni:** Yaklaşan maçların listelenmesi ve takım adına göre anlık arama/filtreleme.
+- **Bahis Sepeti:**
+    - Maçlara ait oranları kupona ekleme, çıkarma ve güncelleme.
+    - Sepetteki toplam maç sayısı ve toplam oranın anlık olarak hesaplanması.
+- **Firebase Authentication:**
+    - E-posta ve şifre ile güvenli kullanıcı kaydı ve girişi.
+    - Oturum kalıcılığı sayesinde sayfa yenilendiğinde oturumun korunması.
+- **Rota Koruma:** Giriş yapmış kullanıcıların login/register sayfalarına, giriş yapmamış kullanıcıların ise bülten gibi özel sayfalara erişiminin engellenmesi.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Kullanılan Teknolojiler ve Kütüphaneler
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Frontend:** React, Vite, TypeScript
+- **State Management:** Redux Toolkit
+- **Routing:** React Router DOM
+- **Styling:** SCSS (Sass)
+- **API İstekleri:** Axios
+- **Backend & Authentication:** Firebase
+- **Kod Kalitesi:** ESLint, Prettier
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## ⚙️ Kurulum ve Çalıştırma
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1.  **Depoyu Klonlayın:**
+    ```bash
+    git clone [https://github.com/SENIN_KULLANICI_ADIN/bet-arena.git](https://github.com/SENIN_KULLANICI_ADIN/bet-arena.git)
+    cd bet-arena
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2.  **Bağımlılıkları Yükleyin:**
+    ```bash
+    npm install
+    ```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3.  **Environment Değişkenlerini Ayarlayın:**
+    Projenin ana dizininde `.env` adında bir dosya oluşturun ve `.env.example` dosyasındaki (eğer oluşturduysan) alanları kendi Firebase proje bilgilerinizle doldurun.
+    ```
+    # FIREBASE CONFIG
+    VITE_FIREBEASE_API_KEY="..."
+    VITE_FIREBEASE_AUTH_DOMAIN="..."
+    # ...diğer Firebase değişkenleri
+    ```
+
+4.  **Geliştirme Sunucusunu Başlatın:**
+    ```bash
+    npm run dev
+    ```
+    Uygulama şimdi `http://localhost:5173` adresinde çalışıyor olacaktır.
+
+## 🔗 Canlı Demo
+
+Uygulamanın canlı versiyonuna [BURAYA_VERCEL_LİNKİ_GELECEK] adresinden ulaşabilirsiniz.
