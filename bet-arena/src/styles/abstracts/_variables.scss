@@ -1,0 +1,33 @@
+// src/styles/abstracts/_variables.scss
+
+// 1. Renk Paleti (Colors)
+// Modern, koyu bir tema seçelim
+$color-primary: #f0ad4e; // Ana vurgu rengi (seçili butonlar, başlıklar)
+$color-background: #121212; // En dıştaki arka plan
+$color-surface: #1e1e1e; // Kartlar, sepet gibi yüzeylerin rengi
+$color-text-primary: #e0e0e0; // Ana metin rengi
+$color-text-secondary: #a0a0a0; // Daha az önemli metinler, tarihler
+$color-border: #333333; // Kenarlıklar
+$color-success: #28a745;
+$color-danger: #dc3545;
+
+
+// 2. Yazı Tipi (Typography)
+$font-family-main: 'Poppins', sans-serif; // Google Font'tan seçeceğimiz font
+$font-size-base: 16px;
+$font-size-h1: 2.5rem;
+$font-size-h2: 2rem;
+$font-size-h3: 1.5rem;
+
+
+// 3. Boşluklar (Spacing)
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+
+// 4. Kenarlıklar ve Gölgeler (Borders & Shadows)
+$border-radius-main: 8px;
+$box-shadow-main: 0 4px 8px rgba(0, 0, 0, 0.2);

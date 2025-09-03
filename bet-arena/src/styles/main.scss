@@ -1,0 +1,20 @@
+// main.scss
+
+// 1. Abstracts
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+
+// 2. Base
+@use 'base/reset';
+@use 'base/base';
+@use 'base/typography';
+
+// 3. Components
+@use 'components/button';
+@use 'components/card';
+@use 'components/match-card';
+@use 'components/bet-basket';
+@use 'base/layout';
+@use 'components/search-input';
+@use 'components/header';
+@use 'components/form';

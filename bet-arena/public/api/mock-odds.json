@@ -1,0 +1,52 @@
+[
+  {
+    "id": "e6844d8524106b12f615f532b610d1c7",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-09-15T19:00:00Z",
+    "home_team": "Manchester United",
+    "away_team": "Chelsea",
+    "bookmakers": [
+      {
+        "key": "unibet",
+        "title": "Unibet",
+        "last_update": "2025-09-02T12:45:06Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              { "name": "Manchester United", "price": 2.15 },
+              { "name": "Chelsea", "price": 3.4 },
+              { "name": "Draw", "price": 3.6 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8c25b293e547e1afe36b17c71618361b",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL",
+    "commence_time": "2025-09-16T14:00:00Z",
+    "home_team": "Arsenal",
+    "away_team": "Tottenham Hotspur",
+    "bookmakers": [
+      {
+        "key": "williamhill",
+        "title": "William Hill",
+        "last_update": "2025-09-02T13:05:12Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              { "name": "Arsenal", "price": 1.91 },
+              { "name": "Tottenham Hotspur", "price": 4.0 },
+              { "name": "Draw", "price": 3.8 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

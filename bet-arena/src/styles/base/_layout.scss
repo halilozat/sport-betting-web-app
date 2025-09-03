@@ -1,0 +1,11 @@
+// src/styles/base/_layout.scss
+.main-content {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: flex-start;
+
+  main {
+    flex-grow: 1; // Ana içeriğin mevcut tüm alanı kaplamasını sağla
+  }
+}

@@ -1,0 +1,33 @@
+// src/styles/components/_bet-basket.scss
+@use '../abstracts/variables' as var;
+
+.bet-basket {
+  border: 1px solid var.$color-border;
+  padding: var.$spacing-lg;
+  min-width: 320px;
+  background-color: var.$color-surface;
+  border-radius: var.$border-radius-main;
+  box-shadow: var.$box-shadow-main;
+
+  h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .basket-list li {
+    border-bottom: 1px solid var.$color-border;
+  }
+
+  .remove-btn {
+    background: var.$color-danger;
+  }
+
+  .basket-summary {
+    border-top: 1px solid var.$color-border;
+  }
+
+  .clear-btn {
+    background-color: var.$color-danger;
+    border-radius: var.$spacing-xs;
+  }
+}

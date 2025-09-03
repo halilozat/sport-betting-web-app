@@ -1,0 +1,11 @@
+// src/styles/base/_base.scss
+@use '../abstracts/variables' as var;
+
+body {
+  margin: 0;
+  font-family: var.$font-family-main;
+  background-color: var.$color-background;
+  color: var.$color-text-primary;
+  font-size: var.$font-size-base;
+  line-height: 1.6;
+}

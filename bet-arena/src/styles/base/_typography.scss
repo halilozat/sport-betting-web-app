@@ -1,0 +1,11 @@
+// src/styles/base/_typography.scss
+@use '../abstracts/variables' as var;
+
+h1, h2, h3 {
+  color: var.$color-primary;
+  font-weight: 700;
+}
+
+h1 { font-size: var.$font-size-h1; }
+h2 { font-size: var.$font-size-h2; }
+h3 { font-size: var.$font-size-h3; }
